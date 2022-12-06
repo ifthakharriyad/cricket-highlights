@@ -5,8 +5,9 @@ import { css } from "styled-components/macro";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 import ProfileThreeColGrid from "components/cards/ProfileThreeColGrid";
+import { useNavigate } from "react-router-dom";
 
-const HeadingRow = tw.div`flex justify-center`;
+const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
@@ -42,15 +43,32 @@ const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-wi
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
+const ButtonContainer = tw.div`flex justify-center`;
+const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
-export default ({ headingText = "Teams", teams }) => {
+export default ({ headingText = "Teams", teams, vis, btnPath, btnTxt }) => {
+  const [visible, setVisible] = useState(vis ? vis : 8);
+  const nav = useNavigate();
+  const onLoadMoreClick = () => {
+    if (btnPath) {
+      nav(btnPath);
+    }
+    setVisible((v) => v + 8);
+  };
   return (
-    <>
+    <div>
       <HeadingRow>
         <Heading>{headingText}</Heading>
       </HeadingRow>
 
-      <ProfileThreeColGrid cards={teams} />
-    </>
+      <ProfileThreeColGrid cards={teams ? teams.slice(0, visible) : null} />
+      {visible < teams?.length && (
+        <ButtonContainer>
+          <LoadMoreButton onClick={onLoadMoreClick}>
+            {btnTxt ? btnTxt : "Load More"}
+          </LoadMoreButton>
+        </ButtonContainer>
+      )}
+    </div>
   );
 };

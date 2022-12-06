@@ -14,7 +14,7 @@ const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-1 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
-  ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
+  ${tw`mt-10 w-full sm:w-1/2 lg:w-1/4 sm:pr-8`}
   ${(props) =>
     props.featured &&
     css`
@@ -44,7 +44,7 @@ const Image = styled.div`
 const Info = tw.div`p-6 pt-2 border-2 border-t-0 rounded-lg rounded-t-none border-[#E2E8F0]`;
 const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
-const Title = tw.div`mt-1 font-black text-xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
+const Title = tw.div`mt-1 font-black text-sm text-gray-900 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
@@ -60,14 +60,14 @@ const p = {
   url: "https://timerse.com",
   featured: true,
 };
-export default ({ headingText, posts, vis, btnPath, btnTxt }) => {
-  const [visible, setVisible] = useState(vis ? vis : 6);
+export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
+  const [visible, setVisible] = useState(vis ? vis : 8);
   const nav = useNavigate();
   const onLoadMoreClick = () => {
     if (btnPath) {
       nav(btnPath);
     }
-    setVisible((v) => v + 6);
+    setVisible((v) => v + 8);
   };
   const { team } = useParams();
   if (team && posts) {
@@ -82,7 +82,7 @@ export default ({ headingText, posts, vis, btnPath, btnTxt }) => {
     });
   }
   return (
-    <>
+    <div style={styl ? styl : null}>
       {headingText ? (
         <HeadingRow>
           <Heading>{headingText}</Heading>
@@ -121,6 +121,6 @@ export default ({ headingText, posts, vis, btnPath, btnTxt }) => {
           </LoadMoreButton>
         </ButtonContainer>
       )}
-    </>
+    </div>
   );
 };

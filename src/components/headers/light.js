@@ -78,7 +78,14 @@ export default ({
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/highlights">Highlights</NavLink>
+      <NavLink
+        href="/highlights"
+        className={({ isActive, isPending }) =>
+          isActive ? "active" : isPending ? "pending" : ""
+        }
+      >
+        Highlights
+      </NavLink>
       <NavLink href="/teams">Teams</NavLink>
     </NavLinks>,
   ];
