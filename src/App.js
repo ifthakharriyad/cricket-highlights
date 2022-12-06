@@ -16,7 +16,9 @@ function App() {
       setPosts(await (await getContents("post")).items);
       setTeams(await (await getContents("team")).items);
     };
-    fetchCont();
+    fetchCont().catch((err) => {
+      console.error(err);
+    });
   }, []);
   const [posts, setPosts] = useState();
   const [teams, setTeams] = useState();
