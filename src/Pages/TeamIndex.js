@@ -47,7 +47,7 @@ const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({ headingText = "Teams", teams, vis, btnPath, btnTxt }) => {
-  const [visible, setVisible] = useState(vis ? vis : 8);
+  const [visible, setVisible] = useState(vis ? vis : teams ? teams.length : 20);
   const nav = useNavigate();
   const onLoadMoreClick = () => {
     if (btnPath) {

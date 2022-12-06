@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { ColorRing, ThreeDots } from "react-loader-spinner";
+//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
@@ -51,7 +53,7 @@ const Description = tw.div``;
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
-export default () => {
+export default ({ isLoading, setIsLoading }) => {
   const [visible, setVisible] = useState(7);
   const onLoadMoreClick = () => {
     setVisible((v) => v + 6);
@@ -61,7 +63,21 @@ export default () => {
       <Header />
       <Container>
         <ContentWithPaddingXl>
-          <Outlet />
+          {isLoading ? (
+            <ThreeDots
+              height="60"
+              width="60"
+              radius="9"
+              color="#6415ff"
+              wrapperStyle={{
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              visible={true}
+            />
+          ) : (
+            <Outlet />
+          )}
         </ContentWithPaddingXl>
       </Container>
       <Footer />

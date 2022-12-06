@@ -14,11 +14,13 @@ function App() {
   useEffect(() => {
     let p, t;
     const fetchCont = async () => {
+      setIsLoading(true);
       p = await getContents("post");
       t = await getContents("team");
     };
     fetchCont()
       .then(() => {
+        setIsLoading(false);
         if (p) {
           setPosts(p.items);
         }
@@ -32,12 +34,13 @@ function App() {
   }, []);
   const [posts, setPosts] = useState();
   const [teams, setTeams] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <RouterProvider
       router={createBrowserRouter([
         {
           path: "/",
-          element: <Root />,
+          element: <Root isLoading={isLoading} setIsLoading={setIsLoading} />,
           errorElement: <ErrorPage />,
           children: [
             {
