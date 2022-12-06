@@ -12,13 +12,23 @@ import TeamIndex from "Pages/TeamIndex";
 
 function App() {
   useEffect(() => {
+    let p, t;
     const fetchCont = async () => {
-      setPosts(await (await getContents("post")).items);
-      setTeams(await (await getContents("team")).items);
+      p = await getContents("post");
+      t = await getContents("team");
     };
-    fetchCont().catch((err) => {
-      console.error(err);
-    });
+    fetchCont()
+      .then(() => {
+        if (p) {
+          setPosts(p.items);
+        }
+        if (t) {
+          setTeams(t.items);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
   const [posts, setPosts] = useState();
   const [teams, setTeams] = useState();
