@@ -51,20 +51,22 @@ export default ({ cards }) => {
   return (
     <>
       <Cards>
-        {cards
-          ? cards.map((card, index) => (
-              <Card key={index}>
-                <Link to={"/teams/" + card.fields.slug}>
-                  <CardImage
-                    imageSrc={"https:" + card.fields.image.fields.file.url}
-                  />
-                  <CardContent>
-                    <span className="name">{card.fields.name}</span>
-                  </CardContent>
-                </Link>
-              </Card>
-            ))
-          : null}
+        {cards ? (
+          cards.map((card, index) => (
+            <Card key={index}>
+              <Link to={"/teams/" + card.fields.slug}>
+                <CardImage
+                  imageSrc={"https:" + card.fields.image.fields.file.url}
+                />
+                <CardContent>
+                  <span className="name">{card.fields.name}</span>
+                </CardContent>
+              </Link>
+            </Card>
+          ))
+        ) : (
+          <Heading>No Teams found!</Heading>
+        )}
       </Cards>
     </>
   );

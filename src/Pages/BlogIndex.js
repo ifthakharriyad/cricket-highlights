@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { css } from "styled-components/macro";
 import Header from "components/headers/light.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
-import { SectionHeading } from "components/misc/Headings";
+import { SectionHeading, Subheading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 import slugify from "slugify";
 import createSlug from "helpers/createSlug";
@@ -90,29 +90,41 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
       ) : null}
 
       <Posts>
-        {posts
-          ? posts.slice(0, visible).map(({ fields }, index) => {
-              let date = new Date(fields.dateAndTime);
-              return (
-                <PostContainer key={index}>
-                  <Post
-                    className="group"
-                    as="a"
-                    href={`/highlights/${createSlug(fields.title)}`}
-                  >
-                    <Image imageSrc={fields.image.fields.file.url} />
-                    <Info>
-                      <CreationDate>{date.toLocaleDateString()}</CreationDate>
-                      <Title>{fields.title}</Title>
-                      {fields.featured && fields.description && (
-                        <Description>{fields.description}</Description>
-                      )}
-                    </Info>
-                  </Post>
-                </PostContainer>
-              );
-            })
-          : null}
+        {posts ? (
+          posts.slice(0, visible).map(({ fields }, index) => {
+            let date = new Date(fields.dateAndTime);
+            return (
+              <PostContainer key={index}>
+                <Post
+                  className="group"
+                  as="a"
+                  href={`/highlights/${createSlug(fields.title)}`}
+                >
+                  <Image imageSrc={fields.image.fields.file.url} />
+                  <Info>
+                    <CreationDate>{date.toLocaleDateString()}</CreationDate>
+                    <Title>{fields.title}</Title>
+                    {fields.featured && fields.description && (
+                      <Description>{fields.description}</Description>
+                    )}
+                  </Info>
+                </Post>
+              </PostContainer>
+            );
+          })
+        ) : (
+          <Subheading
+            style={{
+              color: "black",
+              textAlign: "center",
+              fontSize: "1.8rem",
+              color: "#243e63",
+              fontWeight: 900,
+            }}
+          >
+            No Highlights found!
+          </Subheading>
+        )}
       </Posts>
       {visible < posts?.length && (
         <ButtonContainer>
