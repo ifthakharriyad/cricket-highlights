@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import Header from "components/headers/light.js";
-import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading, Subheading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
-import slugify from "slugify";
 import createSlug from "helpers/createSlug";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -42,24 +39,14 @@ const Image = styled.div`
   ${tw`h-48 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-6 pt-2 border-2 border-t-0 rounded-lg rounded-t-none border-[#E2E8F0]`;
-const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-sm text-gray-900 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
-const p = {
-  imageSrc:
-    "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-  category: "Travel Tips",
-  date: "April 21, 2020",
-  title: "Safely Travel in Foreign Countries",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  url: "https://timerse.com",
-  featured: true,
-};
+
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
   const [visible, setVisible] = useState(vis ? vis : 8);
   const nav = useNavigate();
@@ -115,7 +102,6 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
         ) : (
           <Subheading
             style={{
-              color: "black",
               textAlign: "center",
               fontSize: "1.8rem",
               color: "#243e63",

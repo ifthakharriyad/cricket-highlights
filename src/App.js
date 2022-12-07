@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Root from "routes/root";
 import BlogIndex from "Pages/BlogIndex";
@@ -15,8 +15,8 @@ function App() {
     let p, t;
     const fetchCont = async () => {
       setIsLoading(true);
-      p = await getContents("post");
-      t = await getContents("team");
+      p = await getContents("post", "-fields.dateAndTime");
+      t = await getContents("team", "fields.name");
     };
     fetchCont()
       .then(() => {
@@ -40,7 +40,7 @@ function App() {
       router={createBrowserRouter([
         {
           path: "/",
-          element: <Root isLoading={isLoading} setIsLoading={setIsLoading} />,
+          element: <Root isLoading={isLoading} />,
           errorElement: <ErrorPage />,
           children: [
             {

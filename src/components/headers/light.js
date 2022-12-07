@@ -2,12 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
+// eslint-disable-next-line
 import { css } from "styled-components/macro";
-//eslint-disable-line
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
-import logo from "../../images/logo.svg";
+// import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
@@ -56,7 +56,7 @@ export const MobileNavLinks = motion(styled.div`
 export const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center
 `;
-
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({
   roundedHeaderButton = false,
   logoLink,

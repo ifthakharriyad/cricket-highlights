@@ -2,21 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
-import {
-  SectionHeading,
-  Subheading as SubheadingBase,
-} from "components/misc/Headings";
-import { SectionDescription } from "components/misc/Typography";
-import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import { SectionHeading } from "components/misc/Headings";
 import { Link } from "react-router-dom";
 
-const HeadingContainer = tw.div``;
 const Heading = tw(SectionHeading)``;
-const Subheading = tw(SubheadingBase)`text-center mb-3`;
-const Description = tw(SectionDescription)`mx-auto text-center`;
 
 const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`;
 const Card = tw.div`mt-24 w-full sm:w-1/3 lg:w-1/4 flex flex-col items-center`;
@@ -37,16 +26,7 @@ const CardContent = styled.div`
   9
 `;
 
-const CardLinks = styled.div`
-  ${tw`mt-6 flex`}
-  .link {
-    ${tw`mr-8 last:mr-0 text-gray-400 hocus:text-primary-500 transition duration-300`}
-    .icon {
-      ${tw`fill-current w-6 h-6`}
-    }
-  }
-`;
-
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({ cards }) => {
   return (
     <>
