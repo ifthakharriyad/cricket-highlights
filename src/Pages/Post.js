@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import Header from "components/headers/light.js";
-import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { useParams } from "react-router-dom";
 import createSlug from "helpers/createSlug";
@@ -38,15 +33,16 @@ const Text = styled.div`
     }
   }
 `;
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({ posts }) => {
   const [post, setPost] = useState();
   const { slug } = useParams();
   useEffect(() => {
     let p = posts
-      ? posts.filter((p) => createSlug(p.fields.title) == slug)
+      ? posts.filter((p) => createSlug(p.fields.title) === slug)
       : null;
     setPost(p ? p[0].fields : null);
-  }, [posts]);
+  }, [posts, slug]);
   return (
     <>
       <HeadingRow>
