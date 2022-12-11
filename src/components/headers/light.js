@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 // eslint-disable-next-line
 import { css } from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
@@ -21,7 +22,7 @@ export const NavLinks = tw.div`inline-block`;
 /* hocus: stands for "on hover or focus"
  * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
  */
-export const NavLink = tw.a`
+export const NavLink = styled(Link)`
   text-lg my-2 lg:text-sm lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
   pb-1 border-b-2 border-transparent hover:border-primary-500 hocus:text-primary-500
@@ -34,7 +35,7 @@ export const PrimaryLink = tw(NavLink)`
   border-b-0
 `;
 
-export const LogoLink = styled(NavLink)`
+export const LogoLink = styled(Link)`
   ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
 
   img {
@@ -80,14 +81,14 @@ export default ({
   const defaultLinks = [
     <NavLinks key={1}>
       <NavLink
-        href="/highlights"
-        className={({ isActive, isPending }) =>
-          isActive ? "active" : isPending ? "pending" : ""
-        }
+        to="/highlights"
+        // className={({ isActive, isPending }) =>
+        //   isActive ? "active" : isPending ? "pending" : ""
+        // }
       >
         Highlights
       </NavLink>
-      <NavLink href="/teams">Teams</NavLink>
+      <NavLink to="/teams">Teams</NavLink>
     </NavLinks>,
   ];
 
@@ -96,7 +97,7 @@ export default ({
     collapseBreakPointCssMap[collapseBreakpointClass];
 
   const defaultLogoLink = (
-    <LogoLink href="/">
+    <LogoLink to="/">
       {/* <img src={logo} alt="logo" /> */}
       Cricket Highlights
     </LogoLink>

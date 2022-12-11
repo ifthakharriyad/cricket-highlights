@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+//import { Outlet } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -27,7 +27,7 @@ export default ({ isLoading }) => {
               visible={true}
             />
           ) : (
-            <Outlet />
+            <p>Content</p>
           )}
         </ContentWithPaddingXl>
       </Container>

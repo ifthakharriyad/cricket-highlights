@@ -5,7 +5,7 @@ import { css } from "styled-components/macro";
 import { SectionHeading, Subheading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 import createSlug from "helpers/createSlug";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
@@ -49,10 +49,10 @@ const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
   const [visible, setVisible] = useState(vis ? vis : 8);
-  const nav = useNavigate();
+  const history = useHistory;
   const onLoadMoreClick = () => {
     if (btnPath) {
-      nav(btnPath);
+      history.push(btnPath);
     }
     setVisible((v) => v + 8);
   };

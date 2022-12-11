@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Root from "routes/root";
-import BlogIndex from "Pages/BlogIndex";
+import Routes from "routes/Routes";
+import Sitemap from "routes/Sitemap";
 import getContents from "helpers/getContents";
-import ErrorPage from "Pages/error";
+//import ErrorPage from "Pages/error";
 import Post from "Pages/Post";
+import Header from "components/headers/light";
 
 import "tailwindcss/lib/css/preflight.css";
-import TeamIndex from "Pages/TeamIndex";
 
 function App() {
   useEffect(() => {
     let p, t;
     const fetchCont = async () => {
-      setIsLoading(true);
+      //setIsLoading(true);
       p = await getContents("post", "-fields.dateAndTime");
       t = await getContents("team", "fields.name");
     };
     fetchCont()
       .then(() => {
-        setIsLoading(false);
+        //setIsLoading(false);
         if (p) {
           setPosts(p.items);
         }
@@ -36,7 +36,9 @@ function App() {
   const [teams, setTeams] = useState();
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <RouterProvider
+    <Router>
+      <Header />
+      {/* <RouterProvider
       router={createBrowserRouter([
         {
           path: "/",
@@ -89,7 +91,12 @@ function App() {
           ],
         },
       ])}
-    />
+    /> */}{" "}
+      <Switch>
+        <Routes posts={posts} teams={teams} />
+        <Route path="/sitemap" component={Sitemap} />
+      </Switch>
+    </Router>
   );
 }
 
