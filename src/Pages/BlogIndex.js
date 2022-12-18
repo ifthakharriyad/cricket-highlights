@@ -61,7 +61,7 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
     posts = posts.filter((post) => {
       let found = false;
       post.fields.teams.forEach((t) => {
-        if (t.fields.slug === team) {
+        if (t.fields?.slug && t.fields.slug === team) {
           found = true;
         }
       });
