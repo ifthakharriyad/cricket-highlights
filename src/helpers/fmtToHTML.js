@@ -44,7 +44,7 @@ export default function fmtToHTML(cont) {
 }
 
 function fmtTxt(txtObj) {
-  if (txtObj.marks[0] && txtObj.marks[0].type === "bold") {
+  if (txtObj.marks && txtObj.marks[0] && txtObj.marks[0].type === "bold") {
     return <b>{txtObj.value}</b>;
   } else {
     return txtObj.value;
