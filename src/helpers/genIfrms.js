@@ -16,6 +16,7 @@ export default function genIfrms(url) {
       allowFullscreen
       styles={{ border: "1px solid #aaa" }}
       loading="lazy"
+      scrolling="no"
     ></Iframe>
   );
 }

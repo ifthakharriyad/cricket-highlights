@@ -50,9 +50,9 @@ function App() {
                   <BlogIndex
                     posts={posts}
                     vis={8}
-                    headingText="Latest Highlights"
-                    btnTxt="More Highlights"
-                    btnPath="/highlights"
+                    headingText="Latest Matches"
+                    btnTxt="More Matches"
+                    btnPath="/matches"
                     styl={{ marginBottom: "5rem" }}
                   />
                   <TeamIndex
@@ -65,17 +65,17 @@ function App() {
               ),
             },
             {
-              path: "highlights",
+              path: "matches",
               element: (
                 <BlogIndex
                   posts={posts}
-                  headingText="Highlights"
-                  btnTxt="More Highlights"
+                  headingText="Matches"
+                  btnTxt="More Matches"
                 />
               ),
             },
             {
-              path: "highlights/:slug",
+              path: "matches/:slug",
               element: <Post posts={posts} />,
             },
             {
@@ -84,7 +84,7 @@ function App() {
             },
             {
               path: "teams/:team",
-              element: <BlogIndex posts={posts} headingText="Highlights" />,
+              element: <BlogIndex posts={posts} headingText="Matches" />,
             },
           ],
         },

@@ -8,7 +8,7 @@ import fmtToHTML from "helpers/fmtToHTML";
 import VideoSection from "components/testimonials/VideoSection";
 
 const HeadingRow = tw.div`flex`;
-const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
+const Heading = tw(SectionHeading)`text-gray-900 mb-3 text-center`;
 const Text = styled.div`
   ${tw`text-lg  text-gray-800`}
   p {
@@ -47,9 +47,18 @@ export default ({ posts }) => {
     <>
       <HeadingRow>
         <Heading>{post ? post.title : null}</Heading>
-      </HeadingRow>
+      </HeadingRow>    
+      {
+        post && post.liveIframes ? (
+          <VideoSection partText="Channel" heading="Live Coverage" vUrls={post?.liveIframes} />
+        ):null
+      }  
       <Text>{post ? fmtToHTML(post.paragraphs.content) : null}</Text>
-      <VideoSection vUrls={post?.videoIframeLinks} />
+      {
+        post && post.videoIframeLinks ? (
+          <VideoSection partText="Part" heading="Highlights" vUrls={post?.videoIframeLinks} />
+        ):null
+      }
     </>
   );
 };
