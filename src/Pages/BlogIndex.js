@@ -85,7 +85,7 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
                 <Post
                   className="group"
                   as="a"
-                  href={`/highlights/${createSlug(fields.title)}`}
+                  href={`/matches/${createSlug(fields.title)}`}
                 >
                   <Image imageSrc={fields.image.fields.file.url} />
                   <Info>
