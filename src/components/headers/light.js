@@ -79,6 +79,7 @@ export default ({
    */
   const defaultLinks = [
     <NavLinks key={1}>
+      <NavLink href="/live">Live Matches</NavLink>
       <NavLink
         href="/highlights"
         className={({ isActive, isPending }) =>

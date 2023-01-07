@@ -9,6 +9,7 @@ import Post from "Pages/Post";
 
 import "tailwindcss/lib/css/preflight.css";
 import TeamIndex from "Pages/TeamIndex";
+import getBroadcasts from "helpers/getBroadcasts";
 
 function App() {
   useEffect(() => {
@@ -48,6 +49,14 @@ function App() {
               element: (
                 <>
                   <BlogIndex
+                    posts={posts ? getBroadcasts(posts) : null}
+                    vis={4}
+                    headingText="Live Matches"
+                    btnTxt="More Live Matches"
+                    btnPath="/live"
+                    styl={{ marginBottom: "5rem" }}
+                  />
+                  <BlogIndex
                     posts={posts}
                     vis={8}
                     headingText="Latest Highlights"
@@ -62,6 +71,16 @@ function App() {
                     btnPath="/teams"
                   />
                 </>
+              ),
+            },
+            {
+              path: "live",
+              element: (
+                <BlogIndex
+                  posts={posts ? getBroadcasts(posts) : null}
+                  headingText="Live Matches"
+                  btnTxt="More Live Matches"
+                />
               ),
             },
             {
