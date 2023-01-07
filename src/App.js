@@ -9,6 +9,7 @@ import Post from "Pages/Post";
 
 import "tailwindcss/lib/css/preflight.css";
 import TeamIndex from "Pages/TeamIndex";
+import getBroadcasts from "helpers/getBroadcasts";
 
 function App() {
   useEffect(() => {
@@ -48,11 +49,19 @@ function App() {
               element: (
                 <>
                   <BlogIndex
+                    posts={posts ? getBroadcasts(posts) : null}
+                    vis={4}
+                    headingText="Live Matches"
+                    btnTxt="More Live Matches"
+                    btnPath="/live"
+                    styl={{ marginBottom: "5rem" }}
+                  />
+                  <BlogIndex
                     posts={posts}
                     vis={8}
-                    headingText="Latest Matches"
-                    btnTxt="More Matches"
-                    btnPath="/matches"
+                    headingText="Latest Highlights"
+                    btnTxt="More Highlights"
+                    btnPath="/highlights"
                     styl={{ marginBottom: "5rem" }}
                   />
                   <TeamIndex
@@ -65,17 +74,27 @@ function App() {
               ),
             },
             {
-              path: "matches",
+              path: "live",
               element: (
                 <BlogIndex
-                  posts={posts}
-                  headingText="Matches"
-                  btnTxt="More Matches"
+                  posts={posts ? getBroadcasts(posts) : null}
+                  headingText="Live Matches"
+                  btnTxt="More Live Matches"
                 />
               ),
             },
             {
-              path: "matches/:slug",
+              path: "highlights",
+              element: (
+                <BlogIndex
+                  posts={posts}
+                  headingText="Highlights"
+                  btnTxt="More Highlights"
+                />
+              ),
+            },
+            {
+              path: "highlights/:slug",
               element: <Post posts={posts} />,
             },
             {
@@ -84,7 +103,7 @@ function App() {
             },
             {
               path: "teams/:team",
-              element: <BlogIndex posts={posts} headingText="Matches" />,
+              element: <BlogIndex posts={posts} headingText="Highlights" />,
             },
           ],
         },

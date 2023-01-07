@@ -57,6 +57,7 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
     setVisible((v) => v + 8);
   };
   const { team } = useParams();
+  if (posts && posts.length < 1) return null;
   if (team && posts) {
     posts = posts.filter((post) => {
       let found = false;
@@ -67,58 +68,59 @@ export default ({ headingText, posts, vis, btnPath, btnTxt, styl }) => {
       });
       return found;
     });
-  }
-  return (
-    <div style={styl ? styl : null}>
-      {headingText ? (
-        <HeadingRow>
-          <Heading>{headingText}</Heading>
-        </HeadingRow>
-      ) : null}
+  } else {
+    return (
+      <div style={styl ? styl : null}>
+        {headingText ? (
+          <HeadingRow>
+            <Heading>{headingText}</Heading>
+          </HeadingRow>
+        ) : null}
 
-      <Posts>
-        {posts ? (
-          posts.slice(0, visible).map(({ fields }, index) => {
-            let date = new Date(fields.dateAndTime);
-            return (
-              <PostContainer key={index}>
-                <Post
-                  className="group"
-                  as="a"
-                  href={`/matches/${createSlug(fields.title)}`}
-                >
-                  <Image imageSrc={fields.image.fields.file.url} />
-                  <Info>
-                    <CreationDate>{date.toLocaleDateString()}</CreationDate>
-                    <Title>{fields.title}</Title>
-                    {fields.featured && fields.description && (
-                      <Description>{fields.description}</Description>
-                    )}
-                  </Info>
-                </Post>
-              </PostContainer>
-            );
-          })
-        ) : (
-          <Subheading
-            style={{
-              textAlign: "center",
-              fontSize: "1.8rem",
-              color: "#243e63",
-              fontWeight: 900,
-            }}
-          >
-            No Highlights found!
-          </Subheading>
+        <Posts>
+          {posts ? (
+            posts.slice(0, visible).map(({ fields }, index) => {
+              let date = new Date(fields.dateAndTime);
+              return (
+                <PostContainer key={index}>
+                  <Post
+                    className="group"
+                    as="a"
+                    href={`/highlights/${createSlug(fields.title)}`}
+                  >
+                    <Image imageSrc={fields.image.fields.file.url} />
+                    <Info>
+                      <CreationDate>{date.toLocaleDateString()}</CreationDate>
+                      <Title>{fields.title}</Title>
+                      {fields.featured && fields.description && (
+                        <Description>{fields.description}</Description>
+                      )}
+                    </Info>
+                  </Post>
+                </PostContainer>
+              );
+            })
+          ) : (
+            <Subheading
+              style={{
+                textAlign: "center",
+                fontSize: "1.8rem",
+                color: "#243e63",
+                fontWeight: 900,
+              }}
+            >
+              No Highlights found!
+            </Subheading>
+          )}
+        </Posts>
+        {visible < posts?.length && (
+          <ButtonContainer>
+            <LoadMoreButton onClick={onLoadMoreClick}>
+              {btnTxt ? btnTxt : "Load More"}
+            </LoadMoreButton>
+          </ButtonContainer>
         )}
-      </Posts>
-      {visible < posts?.length && (
-        <ButtonContainer>
-          <LoadMoreButton onClick={onLoadMoreClick}>
-            {btnTxt ? btnTxt : "Load More"}
-          </LoadMoreButton>
-        </ButtonContainer>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };
