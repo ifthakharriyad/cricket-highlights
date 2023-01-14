@@ -47,18 +47,22 @@ export default ({ posts }) => {
     <>
       <HeadingRow>
         <Heading>{post ? post.title : null}</Heading>
-      </HeadingRow>    
-      {
-        post && post.liveIframes ? (
-          <VideoSection partText="Channel" heading="Live Coverage" vUrls={post?.liveIframes} />
-        ):null
-      }  
+      </HeadingRow>
+      {post && post.liveIframes ? (
+        <VideoSection
+          partText="Channel"
+          heading="Live Coverage"
+          vUrls={post?.liveIframes}
+        />
+      ) : null}
       <Text>{post ? fmtToHTML(post.paragraphs.content) : null}</Text>
-      {
-        post && post.videoIframeLinks ? (
-          <VideoSection partText="Part" heading="Highlights" vUrls={post?.videoIframeLinks} />
-        ):null
-      }
+      {post && post.videoIframeLinks ? (
+        <VideoSection
+          partText="Part"
+          heading="Highlights"
+          vUrls={post?.videoIframeLinks}
+        />
+      ) : null}
     </>
   );
 };

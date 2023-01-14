@@ -43,6 +43,8 @@ export default () => {
             <Link href="/live">Live Matches</Link>
             <Link href="/highlights">Highlights</Link>
             <Link href="/teams">Teams</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/cookie">Cookies Policy</Link>
           </LinksContainer>
           {/* <SocialLinksContainer>
             <SocialLink href="https://facebook.com">

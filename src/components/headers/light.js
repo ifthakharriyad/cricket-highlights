@@ -89,6 +89,8 @@ export default ({
         Highlights
       </NavLink>
       <NavLink href="/teams">Teams</NavLink>
+      <NavLink href="/privacy">Privacy</NavLink>
+      <NavLink href="/cookies">Cookies</NavLink>
     </NavLinks>,
   ];
 
