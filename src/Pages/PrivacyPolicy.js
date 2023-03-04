@@ -105,8 +105,8 @@ export default ({ headingText = "Privacy Policy" }) => {
         <h1>DMCA Compliance Policy </h1>
         <p>
           This DMCA Compliance Policy (the “Policy”) is intended to provide
-          information about how the website (the “Site”) complies with the
-          Digital Millennium Copyright Act of 1998 (“DMCA”).
+          information about how the website (the “www.crickethighlights.org”)
+          complies with the Digital Millennium Copyright Act of 1998 (“DMCA”).
         </p>
         <p>
           The Site is committed to complying with all applicable copyright laws,
@@ -120,26 +120,23 @@ export default ({ headingText = "Privacy Policy" }) => {
           copyright infringement, please provide the Site's designated copyright
           agent with the following information:
         </p>
-        <p>Usage Data is collected automatically when using the Service.</p>
         <ul>
           <li>
             <p>
-              {" "}
               A physical or electronic signature of the copyright owner or a
-              person authorized to act on the copyright owner's behalf;{" "}
+              person authorized to act on the copyright owner's behalf;
             </p>
           </li>
           <li>
             <p>
-              {" "}
               A description of the copyrighted work that you claim has been
-              infringed;{" "}
+              infringed;
             </p>
           </li>
           <li>
             <p>
               A description of where the material that you claim is infringing
-              is located on the Site;{" "}
+              is located on the Site;
             </p>
           </li>
           <li>
@@ -165,7 +162,7 @@ export default ({ headingText = "Privacy Policy" }) => {
           The Site's designated copyright agent for notice of claims of
           copyright infringement can be reached as follows:
         </p>
-        <p>[NAME] [ADDRESS] [EMAIL]</p>
+        <p>Our Tweeter @contactusfor </p>
         <p>
           If the Site receives a valid DMCA notification, the Site will promptly
           remove or disable access to the allegedly infringing material. The
@@ -191,14 +188,14 @@ export default ({ headingText = "Privacy Policy" }) => {
             <p>
               Identification of the material that has been removed or to which
               access has been disabled and the location at which the material
-              appeared before it was removed or disabled;{" "}
+              appeared before it was removed or disabled;
             </p>
           </li>
           <li>
             <p>
               A statement that you have a good faith belief that the material
               was removed or disabled as a result of a mistake or
-              misidentification of the material; and{" "}
+              misidentification of the material; and
             </p>
           </li>
           <li>
@@ -210,7 +207,7 @@ export default ({ headingText = "Privacy Policy" }) => {
               any judicial district in which the service provider may be found,
               and that you will accept service of process from the person who
               provided notification of alleged infringement or an agent of such
-              person.{" "}
+              person.
             </p>
           </li>
         </ul>
@@ -219,7 +216,7 @@ export default ({ headingText = "Privacy Policy" }) => {
           repeat infringement can be reached as follows:
         </p>
         <p>
-          [NAME] [ADDRESS] [EMAIL] The Site reserves the right to modify this
+          The www.crickethighlights.org Site reserves the right to modify this
           Policy at any time, so please review it frequently. If the Site makes
           material changes to this Policy, the Site will notify you here, by
           email, or by means of a notice on the Site's home page.
@@ -236,9 +233,10 @@ export default ({ headingText = "Privacy Policy" }) => {
         </p>
         <h2>Content hosted by Crickethighlights.org</h2>
         <p>
-          For A/V content that is hosted by crickethighlights.org, please fill
-          in the request form below and we will endeavor to work closely with
-          you in compliance with the Digital Millenium Copyright Act.
+          For A/V content that is hosted by crickethighlights.org, please make
+          the request at our tweeter handler @contactusfor and we will endeavour
+          to work closely with you in compliance with the Digital Millennium
+          Copyright Act.
         </p>
       </Text>
     </>

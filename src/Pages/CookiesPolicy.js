@@ -38,10 +38,11 @@ export default ({ headingText = "Cookies Policy" }) => {
       </HeadingRow>
       <Text>
         <p>
-          This Cookies Policy explains how we, [Company Name], use cookies and
-          similar technologies to recognize you when you visit our website
-          [URL]. It explains what these technologies are and why we use them, as
-          well as your rights to control our use of them.
+          This Cookies Policy explains how we, www.crickethighlights.org, use
+          cookies and similar technologies to recognize you when you visit our
+          website www.crickethighlights.org. It explains what these technologies
+          are and why we use them, as well as your rights to control our use of
+          them.
         </p>
         <h2>What are cookies?</h2>
         <p>
@@ -52,14 +53,14 @@ export default ({ headingText = "Cookies Policy" }) => {
           information.
         </p>
         <p>
-          Cookies set by the website owner (in this case, [Company Name]) are
-          called “first-party cookies”. Cookies set by parties other than the
-          website owner are called “third-party cookies”. Third-party cookies
-          enable third-party features or functionality to be provided on or
-          through the website (e.g. advertising, interactive content, and
-          analytics). The parties that set these third-party cookies can
-          recognize your computer both when it visits the website in question
-          and also when it visits certain other websites.
+          Cookies set by the website www.crickethighlights.org are called
+          “first-party cookies”. Cookies set by parties other than the website
+          owner are called “third-party cookies”. Third-party cookies enable
+          third-party features or functionality to be provided on or through the
+          website (e.g. advertising, interactive content, and analytics). The
+          parties that set these third-party cookies can recognize your computer
+          both when it visits the website in question and also when it visits
+          certain other websites.
         </p>
         <h2>Why do we use cookies?</h2>
         <p>
@@ -103,7 +104,7 @@ export default ({ headingText = "Cookies Policy" }) => {
         </p>
         <h2>How can I control cookies?</h2>
         <p>
-          You can control and/or delete cookies as you wish for details, see
+          You can control and/or delete cookies as you wish - for details, see
           aboutcookies.org. You can delete all cookies that are already on your
           computer and you can set most browsers to prevent them from being
           placed. If you do this, however, you may have to manually adjust some
