@@ -10,6 +10,9 @@ import Post from "Pages/Post";
 import "tailwindcss/lib/css/preflight.css";
 import TeamIndex from "Pages/TeamIndex";
 import getBroadcasts from "helpers/getBroadcasts";
+import getHighlights from "helpers/getHighlights";
+import CookiesPolicy from "Pages/CookiesPolicy";
+import PrivacyPolicy from "Pages/PrivacyPolicy";
 
 function App() {
   useEffect(() => {
@@ -57,7 +60,7 @@ function App() {
                     styl={{ marginBottom: "5rem" }}
                   />
                   <BlogIndex
-                    posts={posts}
+                    posts={posts ? getHighlights(posts) : null}
                     vis={8}
                     headingText="Latest Highlights"
                     btnTxt="More Highlights"
@@ -104,6 +107,14 @@ function App() {
             {
               path: "teams/:team",
               element: <BlogIndex posts={posts} headingText="Highlights" />,
+            },
+            {
+              path: "cookies",
+              element: <CookiesPolicy />,
+            },
+            {
+              path: "privacy",
+              element: <PrivacyPolicy />,
             },
           ],
         },
