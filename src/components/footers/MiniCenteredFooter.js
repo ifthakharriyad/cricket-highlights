@@ -44,7 +44,7 @@ export default () => {
             <Link href="/highlights">Highlights</Link>
             <Link href="/teams">Teams</Link>
             <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/cookie">Cookies Policy</Link>
+            <Link href="/cookies">Cookies Policy</Link>
           </LinksContainer>
           {/* <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
